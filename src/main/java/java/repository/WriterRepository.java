@@ -1,4 +1,6 @@
 package java.repository;
 
-public interface WriterRepository extends GenericRepository{
+import java.model.Writer;
+
+public interface WriterRepository extends GenericRepository<Writer, Integer> {
 }
