@@ -1,6 +1,6 @@
-package java.repository;
+package repository;
 
-import java.model.Label;
+import model.Label;
 
 public interface LabelRepository extends GenericRepository<Label, Integer> {
 }

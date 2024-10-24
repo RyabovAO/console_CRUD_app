@@ -1,4 +1,4 @@
-package java.model;
+package model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,10 +7,10 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Post {
+public class Writer {
     private int id;
-    private String content;
-    private String title;
-    private List<Label> labels;
+    private String fistName;
+    private String LastName;
+    private List<Post> post;
     private Status status;
 }

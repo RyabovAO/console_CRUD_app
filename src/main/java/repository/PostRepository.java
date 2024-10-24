@@ -1,6 +1,6 @@
-package java.repository;
+package repository;
 
-import java.model.Post;
+import model.Post;
 
 public interface PostRepository extends GenericRepository<Post, Integer> {
 }
