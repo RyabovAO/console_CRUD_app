@@ -8,6 +8,9 @@ import java.util.List;
 public class LabelController {
     private GsonLabelRepositoryImpl gsonLabelRepository;
 
+    /*
+    создаёт новую сущность Label
+     */
     public void newLabelEntity(String name) {
         gsonLabelRepository = new GsonLabelRepositoryImpl();
         List<Label> list = gsonLabelRepository.getArrayFromJson();

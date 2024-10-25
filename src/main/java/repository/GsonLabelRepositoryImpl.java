@@ -13,11 +13,9 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     private List<Label> labelList;
 
     public void create(Label label) {
-
+        List<Label> newList = new ArrayList<>(getArrayFromJson());
+        newList.add(label);
         try(FileWriter fileWriter = new FileWriter(fileLabel)) {
-//            fileWriter.append(gson.toJson(label));
-            List<Label> newList = new ArrayList<>(getArrayFromJson());
-            newList.add(label);
             gson.toJson(newList, fileWriter);
         } catch (FileNotFoundException e) {
             System.out.println("Не найден файл " + e.getMessage());
