@@ -1,6 +1,6 @@
-package repository;
+package com.alexey.crudapp.repository;
 
-import model.Label;
+import com.alexey.crudapp.model.Label;
 
 public interface LabelRepository extends GenericRepository<Label, Integer> {
 }

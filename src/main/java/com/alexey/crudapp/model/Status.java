@@ -1,4 +1,4 @@
-package model;
+package com.alexey.crudapp.model;
 
 public enum Status {
     ACTIVE,

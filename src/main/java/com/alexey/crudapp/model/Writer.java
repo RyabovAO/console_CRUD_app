@@ -1,4 +1,4 @@
-package model;
+package com.alexey.crudapp.model;
 
 import lombok.Getter;
 import lombok.Setter;
