@@ -1,14 +1,15 @@
 package com.alexey.crudapp.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Writer {
-    private int id;
+    private Integer id;
     private String fistName;
     private String LastName;
     private List<Post> post;

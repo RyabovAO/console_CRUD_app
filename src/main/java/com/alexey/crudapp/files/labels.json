@@ -6,8 +6,8 @@
   },
   {
     "id": 2,
-    "name": "2",
-    "status": "ACTIVE"
+    "name": "vilka",
+    "status": "DELETED"
   },
   {
     "id": 3,
@@ -17,6 +17,11 @@
   {
     "id": 4,
     "name": "asd",
+    "status": "ACTIVE"
+  },
+  {
+    "id": 5,
+    "name": "Aloha",
     "status": "ACTIVE"
   }
 ]

@@ -9,12 +9,13 @@ import java.util.List;
 import com.alexey.crudapp.model.Status;
 import com.alexey.crudapp.repository.LabelRepository;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.alexey.crudapp.model.Label;
 
 public class GsonLabelRepositoryImpl implements LabelRepository {
-    private final Gson GSON = new Gson();
-    private final File fileLabel = new File("src/main/java/com.alexey.crudapp.files/labels.json");
+    private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();;
+    private final File fileLabel = new File("src/main/java/com/alexey/crudapp/files/labels.json");
 
     private List<Label> getArrayFromJson() {
         Type userListType = new TypeToken<ArrayList<Label>>() {
@@ -28,7 +29,11 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
 
     private void writeLabelsToFile(List<Label> labels) {
         String jsonString = GSON.toJson(labels);
-        //TODO: write string to the file
+        try(FileWriter fileWriter = new FileWriter(fileLabel)) {
+            fileWriter.write(jsonString);
+        } catch (IOException e) {
+            System.out.println("Файл labels.json не найден " + e.getMessage());
+        }
     }
 
     private Integer generateNewId(List<Label> labels) {
@@ -67,17 +72,15 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
                     }
                     return l;
                 }).toList();
-
         writeLabelsToFile(currentLabels);
-
         return label;
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Integer id) {
         List<Label> currentLabels = getArrayFromJson().stream()
                 .map(l -> {
-                    if(l.getId().equals(integer)) {
+                    if(l.getId().equals(id)) {
                         l.setStatus(Status.DELETED);
                     }
                     return l;

@@ -1,14 +1,15 @@
 package com.alexey.crudapp.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
-    private Long id;
+    private Integer id;
     private String content;
     private String title;
     private List<Label> labels;
